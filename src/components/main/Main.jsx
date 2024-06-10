@@ -1,6 +1,57 @@
 import React, { useState } from "react";
+import Cart from "./cart/Cart";
 export default function Main() {
   const [activeTab, setActiveTab] = useState("description");
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage = 2;
+
+  const totalCards = 8;
+  const totalPages = Math.ceil(totalCards / cardsPerPage);
+
+  const handleClickNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handleClickPrev = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleClickPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const PageNumbers = () => {
+    const pageNumbers = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          className={`px-4 hover:bg-gray-200 border rounded ${
+            currentPage === i && "bg-white"
+          }`}
+          onClick={() => handleClickPage(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    return <div className="flex">{pageNumbers}</div>;
+  };
+
+  const renderCards = () => {
+    const startIndex = (currentPage - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+    return Array.from({ length: totalCards })
+      .slice(startIndex, endIndex)
+      .map((_, index) => <Cart key={index + startIndex} />);
+  };
+
   return (
     <>
       <div className="border-b-2 w-5/6 px-4 flex flex-col gap-4 items-end justify-center pr-16">
@@ -52,10 +103,10 @@ export default function Main() {
           </button>
         </div>
       </div>
-      <div className=" mt-4">
+      <div className="bg-[#FCFCFD]">
         {activeTab === "description" && (
           <>
-            <div className="flex items-center justify-end w-5/6 px-4 pr-16 mt-10">
+            <div className="flex items-center justify-end w-5/6 px-4 pr-16 pt-10">
               <div className="flex flex-col gap-1 justify-center items-end text-[#98A8B3]">
                 <p>اعلام نفرات برتر</p>
                 <p>و پایان فراخوان</p>
@@ -150,10 +201,91 @@ export default function Main() {
           </>
         )}
         {activeTab === "suggestions" && (
-          <div className="suggestions">
-            <h2 className="text-2xl">Suggestions</h2>
-            <p>These are the suggestions content.</p>
-          </div>
+          <>
+            <div>
+              <div className="flex flex-col w-full items-end pr-[19rem]">
+                <div className="flex justify-end w-full pt-10">
+                  <div className="flex flex-col items-end gap-3 w-full">
+                    <p>فیلتر کردن براساس</p>
+                    <div className="flex gap-2 border justify-end p-2 border-[#D0D8DD] rounded-lg">
+                      <select className="rounded ml-2 outline-none" dir="rtl">
+                        <option value="Option 8">جدید‌ترین</option>
+                        <option value="Option 9">قدیمی ترین</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end gap-3 w-full">
+                    <p>تعداد ستاره‌ها</p>
+                    <div className="flex text-end gap-2 border justify-end p-2 border-[#D0D8DD] rounded-lg">
+                      <select className="rounded ml-2 outline-none" dir="rtl">
+                        <option value="" className="text-[#98A8B3]">
+                          یک مورد را انتخاب کنید
+                        </option>
+                        <option value="Option 1" className="text-[#475A67]">
+                          همه پیشنهاد‌ها
+                        </option>
+                        <option value="Option 2" className="text-[#FFC83D]">
+                          &#11088; &#11088; &#11088; &#11088; &#11088; ۵ ستاره
+                        </option>
+                        <option value="Option 3" className="text-[#FFC83D]">
+                          &#11088; &#11088; &#11088; &#11088; ۴ ستاره
+                        </option>
+                        <option value="Option 4" className="text-[#FFC83D]">
+                          &#11088; &#11088; &#11088; ۳ ستاره
+                        </option>
+                        <option value="Option 5" className="text-[#FFC83D]">
+                          &#11088; &#11088; ۲ ستاره
+                        </option>
+                        <option value="Option 6" className="text-[#FFC83D]">
+                          &#11088; ۱ ستاره
+                        </option>
+                        <option value="Option 7" className="text-[#475A67]">
+                          بدون ستاره
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end gap-3 w-full">
+                    <p>مرتب کردن براساس</p>
+                    <div className="flex gap-2 border justify-end py-2 px-5 border-[#D0D8DD] rounded-lg">
+                      <p>فقط پیشنهاد‌های برنده</p>
+                      <img src="./Image/trophy-01.png" />
+                      <img src="./Image/Checkbox.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>{renderCards()}</div>
+
+              <div className="flex justify-start ml-24 bg-white mt-4 ">
+                <button
+                  className={`px-4 py-2 mx-2  rounded ${
+                    currentPage === 1 && "opacity-50 cursor-not-allowed"
+                  }`}
+                  onClick={handleClickPrev}
+                  disabled={currentPage === 1}
+                >
+                  <img className="mt-1" src="./Image/ar2.png" />
+                </button>
+                <PageNumbers />
+                <button
+                  className={`px-4 py-2 mx-2 rounded ${
+                    currentPage === totalPages &&
+                    "opacity-50 cursor-not-allowed"
+                  }`}
+                  onClick={handleClickNext}
+                  disabled={currentPage === totalPages}
+                >
+                  <img className="mt-1" src="./Image/ar1.png" />
+                </button>
+                <div className="ml-[25rem] mt-3">
+                  درحال نمایش <span className="font-bold">۸</span> از{" "}
+                  <span className="font-bold">۴۲۸</span>
+                  پیشنهاد
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </>
