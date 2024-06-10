@@ -54,15 +54,15 @@ export default function Main() {
 
   return (
     <>
-      <div className="border-b-2 w-5/6 px-4 flex flex-col gap-4 items-end justify-center pr-16">
+      <div className="border-b-2 lg:w-5/6 w-full px-4 flex flex-col gap-4 items-end justify-center lg:pr-16">
         <div className="flex gap-2 text-[#344754] text-sm py-4">
-          <p>کارشناسی توسط شرکت</p>
+          <p className="hidden lg:block">کارشناسی توسط شرکت</p>
           <img src="./Image/building.png" />
         </div>
-        <p className="font-bold text-xl">
+        <p className="font-bold text-xl mb-3 lg:mb-1" dir="rtl">
           فراخوان حل چالش کد‌نویسی همکاران سیستم به زبان پایتون
         </p>
-        <div className="w-1/2 justify-end flex gap-10 mt-10">
+        <div className="w-1/2 justify-end flex gap-10 mt-10 hidden md:flex">
           <button
             className={`w-1/3 flex justify-center items-center gap-2 font-bold p-2 ${
               activeTab === "suggestions"
@@ -106,7 +106,7 @@ export default function Main() {
       <div className="bg-[#FCFCFD]">
         {activeTab === "description" && (
           <>
-            <div className="flex items-center justify-end w-5/6 px-4 pr-16 pt-10">
+            <div className="flex items-center justify-end w-5/6 px-4 pr-16 pt-10 hidden lg:flex">
               <div className="flex flex-col gap-1 justify-center items-end text-[#98A8B3]">
                 <p>اعلام نفرات برتر</p>
                 <p>و پایان فراخوان</p>
@@ -148,11 +148,104 @@ export default function Main() {
                 <p>ساعت ۱۸:۲۰</p>
               </div>
             </div>
-            <div className=" w-5/6 px-4 pr-40 mt-16 flex flex-col justify-center items-end ">
-              <div className="flex gap-2 text-xl font-bold">
+            <div className="flex flex-col justify-center items-center pt-10 lg:hidden">
+              <img src="./Image/Vector1.png" className="ml-[16.5rem] mb-10" />
+              <div
+                className="flex justify-end items-center w-full px-4 "
+                style={{ marginBottom: "-10px" }}
+              >
+                <div className="flex flex-col items-end">
+                  <div className="flex flex-col gap-3 items-end">
+                    <div className="flex gap-1 justify-end items-center mt-[-3rem]">
+                      <p className="font-bold">
+                        شروع فراخوان و دریافت پیشنهادها{" "}
+                      </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <p>ساعت ۱۸:۲۰</p>
+                      <p>|</p>
+                      <p>شنبه ۱۸ بهمن ۱۴۰۲</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <div className="h-4 w-4 rounded-full bg-[#49B3F3]"></div>
+                  <div className="w-1 h-12 bg-[#49B3F3]"></div>
+                  <div className="w-1 h-12 bg-[#EAEEF0]"></div>
+                </div>
+              </div>
+              <div
+                className="flex justify-end items-center w-full text-[#98A8B3] px-4 lg:hidden"
+                style={{ marginBottom: "-10px" }}
+              >
+                <div className="flex flex-col items-end">
+                  <div className="flex flex-col gap-3 items-end">
+                    <div className="flex gap-1 justify-end items-center mt-[-4rem]">
+                      <p>پایان دریافت پیشنهادها و شروع کارشناسی </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <p>ساعت ۱۸:۲۰</p>
+                      <p>|</p>
+                      <p>شنبه ۱۸ بهمن ۱۴۰۲</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <div className="h-4 w-4 rounded-full bg-[#EAEEF0]"></div>
+                  <div className="w-1 h-24 bg-[#EAEEF0]"></div>
+                </div>
+              </div>
+              <div
+                className="flex justify-end items-center w-full text-[#98A8B3] px-4 lg:hidden"
+                style={{ marginBottom: "-10px" }}
+              >
+                <div className="flex flex-col items-end">
+                  <div className="flex flex-col gap-3 items-end">
+                    <div className="flex gap-1 justify-end items-center mt-[-4rem]">
+                      <p>اعلام نفرات برتر و پایان فراخوان </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <p>ساعت ۱۸:۲۰</p>
+                      <p>|</p>
+                      <p>شنبه ۱۸ بهمن ۱۴۰۲</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center  justify-center">
+                  <div className="h-4 w-4 rounded-full bg-[#EAEEF0]"></div>
+                  <div className="w-1 h-28 bg-[#EAEEF0]"></div>
+                </div>
+              </div>
+              <div
+                className="flex justify-end items-center w-full text-[#98A8B3] px-4 lg:hidden"
+                style={{ marginBottom: "-10px" }}
+              >
+                <div className="flex flex-col items-end">
+                  <div className="flex flex-col gap-3 items-end">
+                    <div className="flex gap-1 justify-end items-center">
+                      <p>اعلام نفرات برتر و پایان فراخوان </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <p>ساعت ۱۸:۲۰</p>
+                      <p>|</p>
+                      <p>شنبه ۱۸ بهمن ۱۴۰۲</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="h-4 w-4 rounded-full bg-[#EAEEF0] mt-[-2rem] ml-1"></div>
+              </div>
+            </div>
+
+            <div className=" lg:w-5/6 w-full px-4 lg:pr-40 mt-16 flex flex-col justify-center items-end ">
+              <div className="flex gap-2 text-xl font-bold hidden lg:flex">
                 <p>معرفی فراخوان</p>
                 <img src="./Image/Frame1.png" />
               </div>
+              <img
+                src="./Image/Vector1.png"
+                className="ml-[16.5rem] mb-5 lg:hidden"
+              />
               <p className="text-end text-[#475A67] text-lg mt-3">
                 !به تابستون چلنج خوش اومدی <br />
                 تابستون چلنج برای همه‌ست. جونیور یا سنیور، محصل یا شاغل، بک یا
@@ -163,39 +256,64 @@ export default function Main() {
                 بعضی از چالش‌ها آسونه و بعضی‌هاش <br />
                 .هم متوسط یا یکم سخته و خلاصه همه مدل چالشی داریم
               </p>
-              <div className="flex gap-2 text-xl font-bold mt-10">
+              <div className="lg:flex gap-2 text-xl font-bold mt-10 hidden">
                 <p>ویدیوی معرفی فراخوان</p>
                 <img src="./Image/Frame1.png" />
               </div>
-              <div className="video-container mt-5 w-5/6 h-60 flex justify-end">
+              <img
+                src="./Image/Vector1.png"
+                className="ml-[16.5rem] mt-10 lg:hidden"
+              />
+              <div className="video-container lg:mt-5 w-5/6 h-60 flex justify-end ">
                 <video className="w-full rounded-lg" controls>
                   <source src="./Image/video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="flex gap-2 text-xl font-bold mt-10">
+              <div className="lg:flex gap-2 text-xl font-bold mt-10 hidden">
                 <p>سوالات متداول</p>
                 <img src="./Image/Frame1.png" />
               </div>
-              <div className="flex gap-2 text-lg font-bold mt-10">
+              <div className="lg:flex gap-2 text-lg font-bold mt-10 hidden">
                 <p>پیش‌نیاز‌ها علمی برای شرکت در این فراخوان چیست؟</p>
 
                 <img src="./Image/icon1.png" />
               </div>
-              <p className="text-end py-6 text-[#475A67] text-lg border-b-2 w-5/6">
+              <p className="text-end py-6 text-[#475A67] text-lg border-b-2 w-5/6 hidden lg:block">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                 استفاده از طراحان گرافیک است <br /> چاپگرها و متون بلکه روزنامه
                 و مجله در ستون و سطرآنچنان که لازم است{" "}
               </p>
-              <div className="flex border-b-2 py-6 w-5/6 justify-end  text-[#344754] gap-2 text-lg font-bold">
+              <div className="lg:flex hidden border-b-2 py-6 w-5/6 justify-end  text-[#344754] gap-2 text-lg font-bold">
                 <p>اینجا ناهار هم میدن یا نه؟</p>
 
                 <img src="./Image/icon1.png" />
               </div>
-              <div className="flex w-5/6 justify-end py-6 mb-20 text-[#344754] gap-2 text-lg font-bold">
+              <div className="lg:flex hidden w-5/6 justify-end py-6 mb-20 text-[#344754] gap-2 text-lg font-bold">
                 <p>دیگه چخبر؟</p>
 
                 <img src="./Image/icon1.png" />
+              </div>
+              <img
+                src="./Image/Vector1.png"
+                className="ml-[16.5rem] mb-5 mt-10 lg:hidden"
+              />
+              <div className="flex gap-2 text-lg font-bold mt-10 lg:hidden">
+                <p>آیا نسخه آموزشی هم دارد؟</p>
+                <img src="./Image/IconWrap.png" />
+              </div>
+              <p className="text-end w-full p-6 text-[#475A67] text-lg border-b-2  lg:hidden ">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان که لازم است.{" "}
+              </p>
+              <div className="flex w-full lg:hidden border-b-2 py-6 justify-end text-end text-[#344754] gap-2 text-md font-bold">
+                <p>آیا چیزی که خریدم رو می‌تونم پس بدم؟</p>
+                <img src="./Image/Iconw2.png" />
+              </div>
+              <div className="flex w-full lg:hidden border-b-2 py-6 justify-end text-end text-[#344754] gap-2 text-lg font-bold mb-10">
+                <p>دیگه چخبر؟</p>
+                <img src="./Image/Iconw2.png" />
               </div>
             </div>
           </>
@@ -287,6 +405,44 @@ export default function Main() {
             </div>
           </>
         )}
+        <div className="w-full justify-end mb-4 flex gap-10 mt-10 md:hidden ">
+          <button
+            className={`w-1/3 flex justify-center items-center gap-2 font-bold p-2 ${
+              activeTab === "suggestions"
+                ? "text-black border-b-2 border-b-black"
+                : "text-[#98A8B3]"
+            }`}
+            onClick={() => setActiveTab("suggestions")}
+          >
+            <img
+              src="./Image/layers.png"
+              className={`${
+                activeTab === "suggestions"
+                  ? "filter invert"
+                  : "filter invert-1"
+              }`}
+              alt="Suggestions Icon"
+            />
+          </button>
+          <button
+            className={`w-1/3 flex justify-center items-center gap-2 font-bold p-2 ${
+              activeTab === "description"
+                ? "text-black border-b-2 border-b-black"
+                : "text-[#98A8B3]"
+            }`}
+            onClick={() => setActiveTab("description")}
+          >
+            <img
+              src="./Image/Icon.png"
+              className={`${
+                activeTab === "description"
+                  ? "filter invert"
+                  : "filter invert-1"
+              }`}
+              alt="Description Icon"
+            />
+          </button>
+        </div>
       </div>
     </>
   );
