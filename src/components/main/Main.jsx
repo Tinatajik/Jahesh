@@ -56,7 +56,7 @@ export default function Main() {
     <>
       <div className="border-b-2 lg:w-5/6 w-full px-4 flex flex-col gap-4 items-end justify-center lg:pr-16">
         <div className="flex gap-2 text-[#344754] text-sm py-4">
-          <p className="hidden lg:block">کارشناسی توسط شرکت</p>
+          <p>کارشناسی توسط شرکت</p>
           <img src="./Image/building.png" />
         </div>
         <p className="font-bold text-xl mb-3 lg:mb-1" dir="rtl">
