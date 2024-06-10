@@ -1,6 +1,6 @@
 export default function Sidebar() {
   return (
-    <div className="border-l-2 w-1/6 h-full p-4 bg-[#FFFFFF] end-0 top-0  fixed">
+    <div className="border-l-2 w-1/6 h-full p-4 bg-[#FFFFFF] end-0 top-0  fixed lg:block hidden">
       <div className="flex flex-col items-end ">
         <div className="flex gap-3">
           <p className="font-bold">همکاران سیستم</p>
